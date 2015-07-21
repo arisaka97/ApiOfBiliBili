@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://www.bilibilijj.com/apiword/ -->
+<html lang="en" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>开放API - 哔哩哔哩唧唧</title>
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!--[if lt IE 7]>
+			
+		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="./开放API - 哔哩哔哩唧唧_files/reset.css">
+		<link rel="stylesheet" type="text/css" href="./开放API - 哔哩哔哩唧唧_files/style.css">
+		<!--<link href='http://fonts.googleapis.com/css@family=Passion+One' rel='stylesheet' type='text/css'>-->
+		<style>
+		    a {
+                color:#e5bb31;  
+                text-decoration:none;
+		    }
+            td {
+                border: #ccc solid 1px;
+                padding: 5px;
+            }
+		    /*.list a {
+                text-align:center;
+		    }*/
+		</style>
+		<meta charset="utf-8">
+	<style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+	
+	<body>
+	
+		<div id="top-bar">
+		</div><!-- end top bar -->
+		<a href="http://www.bilibilijj.com/" id="trigger">API文档</a>
+		
+		<div id="container">
+			
+			
+			<span class="separator">line</span>
+			
+			<h3>哔哩哔哩唧唧所有API最终请求数据均来自bilibili官方API，哔哩哔哩唧唧只作缓存数据处理。</h3>
+			<p class="info"><cc style="background-color:#e5bb31;">Mile Mile chirp beep beep all API requests data are from bilibili final official API, beep beep Mile Mile chirp only for caching data processing.(Machine translation Ha ha ha!)</cc>
+			</p>
+<br><br><br><br>
+			<h5 style="color:#000;">通过视频AV地址获取视频(可直接获取福利视频CID，无需登陆)CID:<br></h5>
+            <p>请求方式:<span style="background-color: #e5bb31;color:#FFF">GET</span></p><br>
+<p>请求数据:</p>
+<table style="border-collapse: collapse;
+border: 10px solid #EDECEC;text-align: center;
+width: 100%;">
+
+<tbody><tr>
+<th scope="col" width="60">字段
+</th><th scope="col">取值
+</th><th scope="col">是否必需
+</th><th scope="col">描述
+</th></tr>
+<tr>
+<td>Av
+</td><td>Int(数值类型)
+</td><td>是
+</td><td>bilibili视频的Av地址
+</td></tr>
+<tr>
+<td>P
+</td><td>Int(数值类型)
+</td><td>否
+</td><td>bilibili视频的分P地址(如果单P可留空或者输入1)
+</td></tr></tbody></table><br>
+<p>请求地址:<span style="background-color: #e5bb31;color:#FFF">http://www.bilibilijj.com/Api/AvToCid/{Av}/{P}</span></p><br>
+<p>请求示例:
+<br><span style="background-color: #e5bb31;color:#FFF">
+    http://www.bilibilijj.com/Api/AvToCid/10086<br>
+    http://www.bilibilijj.com/Api/AvToCid/10086/1<br>
+    http://www.bilibilijj.com/Api/AvToCid/10086/0 (当page为0时，将会返回整个集合)
+    </span>
+</p><br>
+<p>返回内容格式:<span style="background-color: #e5bb31;color:#FFF">JSON</span></p>
+<br>
+<p>返回内容示例:<span style="background-color: #e5bb31;color:#FFF">{"code":0,"msg":"OK","av":10086,"p":1,"title":"【中文配音】搞笑漫画日和之贴纸","cid":1111282}</span></p>
+<br>
+<p>返回代码说明:</p>
+<table style="border-collapse: collapse;
+border: 10px solid #EDECEC;text-align: center;
+width: 100%;">
+
+<tbody><tr>
+<th scope="col">返回代码
+</th><th scope="col">说明
+</th>
+</tr>
+<tr>
+<td>0</td><td>操作成功完成</td>
+</tr><tr>
+<td>-1</td><td>获取CID失败,比如视频不存在或者指定分P不存在;</td>
+</tr>
+<tr>
+<td>-2</td><td>参数错误，请严格按照上方请求地址格式化URL</td>
+</tr>
+
+</tbody></table>
+
+
+
+            <br><br><br><br>
+            <h5 style="color:#000;">通过CID获取音乐下载地址<br></h5>
+            <p>请求方式:<span style="background-color: #e5bb31;color:#FFF">POST</span></p><br>
+            <p>请求数据:</p>
+            <table style="border-collapse: collapse;
+border: 10px solid #EDECEC;text-align: center;
+width: 100%;">
+
+                <tbody>
+                    <tr>
+                        <th scope="col" width="60">
+                            字段
+                        </th>
+                        <th scope="col">
+                            取值
+                        </th>
+                        <th scope="col">
+                            是否必需
+                        </th>
+                        <th scope="col">
+                            描述
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            CID
+                        </td>
+                        <td>
+                            Int(数值类型)
+                        </td>
+                        <td>
+                            是
+                        </td>
+                        <td>
+                            bilibili的视频CID
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            AV
+                        </td>
+                        <td>
+                            Int(数值类型)
+                        </td>
+                        <td>
+                            是
+                        </td>
+                        <td>
+                            bilibili的视频AV
+                        </td>
+                    </tr>
+                </tbody>
+            </table><br>
+            <p>请求地址:<span style="background-color: #e5bb31;color:#FFF">http://www.bilibilijj.com/ashx/mp3file.ashx</span></p><br>
+            <p>
+                请求示例:<span style="background-color: #e5bb31;color:#FFF">cid=2345292&amp;av=1542783</span><br>
+</p><br>
+            <p>返回内容格式:<span style="background-color: #e5bb31;color:#FFF">JSON</span></p>
+            <br>
+            <p>返回内容示例:<span style="background-color: #e5bb31;color:#FFF">{"code":"1","mp3":"/Files/DownLoad/2345292.mp3","mp4":"/Files/DownLoad/2345292.mp4","mp4lenght":12668880,"mp3lenght":3639526}</span></p>
+        <p>PS:Code为状态代码,下面有详细状态说明</p>
+            <br>
+            <p>返回代码说明:</p>
+            <table style="border-collapse: collapse;
+border: 10px solid #EDECEC;text-align: center;
+width: 100%;">
+                <tbody>
+                    <tr>
+                        <th scope="col">
+                            返回代码
+                        </th>
+                        <th scope="col">
+                            说明
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>-5</td>
+                        <td>上传时发生致命错误,无法完成上传指令！</td>
+                    </tr>
+                    <tr>
+                        <td>-3</td>
+                        <td>文件大小超出唧唧能承受的极限范围了！(300M)</td>
+                    </tr>
+                    <tr>
+                        <td>-1,-2</td>
+                        <td>解析出错，下载终止</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>队列中,队列名次可以通过读取"row"参数获取</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>OK</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>单段视频下载中...</td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>分段视频下载中...</td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>视频转码中...</td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>提取MP3文件中...</td>
+                    </tr>
+                    <tr>
+                        <td>51</td>
+                        <td>正在上传MP4文件...</td>
+                    </tr>
+                    <tr>
+                        <td>61</td>
+                        <td>正在上传MP3文件...</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <p>其他参数:</p>
+            <table style="border-collapse: collapse;
+border: 10px solid #EDECEC;text-align: center;
+width: 100%;">
+                <tbody>
+                    <tr>
+                        <th scope="col">
+                            参数
+                        </th>
+                        <th scope="col">
+                            说明
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>mp3</td>
+                        <td>MP3文件下载地址,在地址末尾加上"/www.bilibilijj.com.mp3"可以直接进行下载</td>
+                    </tr>
+                    <tr>
+                        <td>mp4</td>
+                        <td>mp4文件下载地址,在地址末尾加上"/www.bilibilijj.com.mp4"可以直接进行下载</td>
+                    </tr>
+                    <tr>
+                        <td>mp3lenght</td>
+                        <td>mp3文件文件大小</td>
+                    </tr>
+                    <tr>
+                        <td>mp4lenght</td>
+                        <td>mp4文件文件大小</td>
+                    </tr>
+                    <tr>
+                        <td>row</td>
+                        <td>当前在队列中排在第几位（仅当Code为0时才有此参数）</td>
+                    </tr>
+                </tbody>
+            </table>
+			<br><br>
+
+
+
+
+
+<p>说明:虽然哔哩哔哩唧唧没有对API进行任何访问限制，不过还是希望您在使用API时注意请求频率。</p>
+			<div id="timer">
+				<div class="timer-unit first">
+					<div class="circle">
+						<h1 id="t-days">582</h1>
+					</div>
+					<div class="inner-circle" id="days-inner"></div>
+					<div class="ticker days-transition rotate0" id="days"></div>
+					<h3>days</h3>
+				</div><!-- end timer unit -->
+				<div class="timer-unit">
+					<div class="circle">
+						<h1 id="t-hours">22</h1>
+					</div>
+					<div class="inner-circle" id="hours-inner"></div>
+					<div class="ticker hours-transition rotate180" id="hours"></div>
+					<h3>hours</h3>
+				</div><!-- end timer unit -->
+				<div class="timer-unit">
+					<div class="circle">
+						<h1 id="t-minutes">25</h1>
+					</div>
+					<div class="inner-circle" id="minutes-inner"></div>
+					<div class="ticker minutes-transition rotate240" id="minutes"></div>
+					<h3>minutes</h3>
+				</div><!-- end timer unit -->
+				<div class="timer-unit">
+					<div class="circle">
+						<h1 id="t-seconds">30</h1>
+					</div>
+					<div class="inner-circle" id="seconds-inner"></div>
+					<div class="ticker seconds-transition rotate30 rotate60 rotate90 rotate120" id="seconds"></div>
+					<h3>seconds</h3>
+				</div><!-- end timer unit -->
+			</div><!-- end timer -->
+			
+	
+			
+			<span class="separator">line</span>
+			<div id="social">
+			
+			</div><!-- end social -->
+			<p id="copyrights">(c) 2014 jjdouga, theme by monochrome. inc
+</p>
+		</div><!-- end container -->
+		
+		<!-- script tags here (different than google web fonts) -->
+        <script src="./开放API - 哔哩哔哩唧唧_files/jquery-1.7.1.js"></script>
+		<script src="./开放API - 哔哩哔哩唧唧_files/script.js"></script>
+		<!-- end scripts -->
+		
+ <div style="display:none"><script src="http://s22.cnzz.com/stat.php?id=5544535&web_id=5544535" language="JavaScript"></script></div>
+
+
+	</body></html>
